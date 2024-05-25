@@ -1,9 +1,5 @@
-import { Button } from "@sizer/musicui";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <Button>Hello, Nextjs!</Button>
-    </>
-  );
+  redirect("/C Major")
 }
