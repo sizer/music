@@ -1,7 +1,18 @@
-import { getFingerBoard, getScale } from "../_lib/tones";
+import { availableScales, getFingerBoard, getScale, musicKeys } from "../_lib/tones";
 import React from "react";
 import { FingerBoard } from "./FingerBoard";
 import { ScaleSelector } from "./ScaleSelector";
+
+export function generateStaticParams() {
+    const scaleNames = musicKeys.flatMap(key =>
+        availableScales.flatMap(scaleSet =>
+            scaleSet.filter(v => v).map(scale =>
+                `${key} ${scale}`
+            )
+        )
+    );
+    return scaleNames.map(scaleName => ({ scaleName }));
+}
 
 export default function Page({ params }: { params: { scaleName: string } }) {
     const { scaleName: scaleNameParam } = params;

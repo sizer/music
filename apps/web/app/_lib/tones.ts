@@ -1,7 +1,31 @@
 import { Chord, Mode, Note, Scale } from "tonal";
 
 export const musicKeys = Note.names().flatMap((note) => [`${note}b`, note]);
-export const modeScaleNames = Mode.names();
+export const availableScales = [
+    ["Major",
+        undefined,
+        undefined,
+        "Major Pentatonic",
+        undefined,
+        undefined,
+        undefined,
+    ],
+    ["Minor",
+        "Minor Pentatonic",
+        "Melodic Minor",
+        "Harmonic Minor",
+        undefined,
+        undefined,
+        undefined,
+    ],
+    ["Ionian",
+        "Dorian",
+        "Phrygian",
+        "Lydian",
+        "Mixolydian",
+        "Aeolian",
+        "Locrian"],
+]
 
 export interface Scale {
     tonic: string;

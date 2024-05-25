@@ -1,35 +1,9 @@
 "use client";
 
 import { Button, Colors } from "@sizer/musicui";
-import { musicKeys } from "../_lib/tones";
+import { availableScales, musicKeys } from "../_lib/tones";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
-const availableScales = [
-    ["Major",
-        undefined,
-        undefined,
-        "Major Pentatonic",
-        undefined,
-        undefined,
-        undefined,
-    ],
-    ["Minor",
-        "Minor Pentatonic",
-        "Melodic Minor",
-        "Harmonic Minor",
-        undefined,
-        undefined,
-        undefined,
-    ],
-    ["Ionian",
-        "Dorian",
-        "Phrygian",
-        "Lydian",
-        "Mixolydian",
-        "Aeolian",
-        "Locrian"],
-]
 
 export const ScaleSelector = () => {
     const [selectedKey, setSelectedKey] = useState<string | null>(null);
@@ -60,7 +34,7 @@ export const ScaleSelector = () => {
                     >
                         {
                             availableScales.flatMap((scaleSet) =>
-                                scaleSet.map((scaleName) => (
+                                scaleSet.map((scaleName, i) => (
                                     scaleName ?
                                         <div
                                             key={scaleName}
@@ -70,7 +44,7 @@ export const ScaleSelector = () => {
                                             {selectedKey} {scaleName}
                                         </div>
                                         :
-                                        <div />
+                                        <div key={i} />
                                 ))
                             )
                         }

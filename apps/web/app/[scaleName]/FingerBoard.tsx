@@ -25,8 +25,9 @@ const Background = () => <div style={{
     gap: "1rem",
 }}>
     {/* Frame of Strings */}
-    {[1, 2, 3, 4, 5, 6].map(() => (
+    {[1, 2, 3, 4, 5, 6].map((i) => (
         <hr
+            key={i}
             style={{
                 width: "100%",
                 margin: 0
@@ -78,6 +79,7 @@ const Flets = ({ numOfFrets, width }: { numOfFrets: number, width: number }) => 
         const fletNum = ++i;
         return (
             <div
+                key={fletNum}
                 style={{
                     width: Math.floor(width / numOfFrets),
                     boxSizing: "border-box",
@@ -124,15 +126,18 @@ export const FingerBoard = ({ scale, tuning, ...props }: Props & React.HTMLAttri
                     top: 0,
                     marginLeft: Math.floor(width / numOfFrets) * -1,
                 }}>
-                {tuning.map((byString) => (
-                    <div style={{
-                        height: 108 / 6,
-                        display: "flex",
-                        flexDirection: "row",
-                        flexWrap: "nowrap",
-                    }}>
+                {tuning.map((byString, i) => (
+                    <div
+                        key={i}
+                        style={{
+                            height: 108 / 6,
+                            display: "flex",
+                            flexDirection: "row",
+                            flexWrap: "nowrap",
+                        }}>
                         {
                             byString.map((tone) => (<div
+                                key={`${i}-${tone}`}
                                 style={{
                                     width: Math.floor(width / numOfFrets),
                                     display: "flex",
