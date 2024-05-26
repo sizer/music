@@ -7,7 +7,7 @@ export function generateStaticParams() {
     const scaleNames = musicKeys.flatMap(key =>
         availableScales.flatMap(scaleSet =>
             scaleSet.filter(v => v).map(scale =>
-                `${key} ${scale}`
+                encodeURIComponent(`${key} ${scale}`)
             )
         )
     );
