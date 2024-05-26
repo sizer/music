@@ -75,9 +75,6 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} build -w apps/web
-      - name: Disable jekyll
-        # https://qiita.com/sky_y/items/b96ae52c90457bcd7846#%E8%A7%A3%E6%B1%BA%E6%B3%95
-        run: touch apps/web/out/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
