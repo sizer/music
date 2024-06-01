@@ -39,7 +39,7 @@ export const ScaleSelector = () => {
                                         <div
                                             key={scaleName}
                                             style={{ cursor: "pointer" }}
-                                            onClick={() => router.push(`${selectedKey} ${scaleName}`)}
+                                            onClick={() => router.push(`${selectedKey} ${scaleName}`.replaceAll(" ", "_"))}
                                         >
                                             {selectedKey} {scaleName}
                                         </div>

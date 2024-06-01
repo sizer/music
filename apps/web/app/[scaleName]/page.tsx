@@ -7,7 +7,7 @@ export function generateStaticParams() {
     const scaleNames = musicKeys.flatMap(key =>
         availableScales.flatMap(scaleSet =>
             scaleSet.filter(v => v).map(scale =>
-                encodeURIComponent(`${key} ${scale}`)
+                `${key} ${scale}`.replaceAll(" ", "_")
             )
         )
     );
@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export default function Page({ params }: { params: { scaleName: string } }) {
     const { scaleName: scaleNameParam } = params;
-    const scaleName = decodeURIComponent(scaleNameParam);
+    const scaleName = scaleNameParam.replaceAll(/_/g, " ");
     const scale = getScale(scaleName.split(" ")[0], scaleName.split(" ").slice(1).join(" "));
     const fingerBoard = getFingerBoard();
 
