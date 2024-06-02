@@ -27,6 +27,7 @@ const Background = ({ height }: { height: number }) => <div style={{
     {/* Frame of Strings */}
     {[1, 2, 3, 4, 5, 6].map((i) => (
         <div
+            key={i}
             style={{
                 height: height / 6,
                 display: "flex",
@@ -36,7 +37,6 @@ const Background = ({ height }: { height: number }) => <div style={{
             }}
         >
             <hr
-                key={i}
                 style={{
                     width: "100%",
                     margin: 0
