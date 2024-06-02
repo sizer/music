@@ -28,20 +28,30 @@ export default function Page({ params }: { params: { scaleName: string } }) {
                     display: "flex",
                     flexDirection: "column",
                     flexWrap: "nowrap",
+                    justifyContent: "space-between",
                     alignItems: "center",
+                    gap: "1rem",
                 }}>
 
-                <h1>{scaleName}</h1>
+                <h1
+                    style={{
+                        margin: 0,
+                        padding: '1rem'
+                    }}
+                >{scaleName}</h1>
 
-                <div style={{
-                    margin: "1rem 0",
-                }}>
+                <div
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                    }}
+                >
                     <FingerBoard scale={scale} tuning={fingerBoard} />
                 </div>
 
                 <div style={{
-                    margin: "auto 1rem 1rem 1rem",
                     overflowX: "scroll",
+                    padding: "1rem",
                 }}>
                     <ScaleSelector />
                 </div>
